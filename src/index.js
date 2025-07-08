@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import usuariosRoutes from "./routes/UsuariosRoutes.js";
 import institucionesRoutes from "./routes/InstitucionRoutes.js";
 import tipoDePruebaRoutes from "./routes/tipoDePruebaRouter.js";
+import resultadosRoutes from "./routes/resultadosRouter.js";
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use("/api/usuarios", usuariosRoutes);
 app.use("/api/instituciones", institucionesRoutes);
 app.use("/api/tipos-de-prueba", tipoDePruebaRoutes);
+app.use("/api/resultados", resultadosRoutes);
 
 app.use((req, res) => {
   res.status(404).json({ mensaje: "Ruta no encontrada" });
