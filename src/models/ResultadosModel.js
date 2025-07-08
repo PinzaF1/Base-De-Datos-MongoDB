@@ -15,7 +15,7 @@ const resultadoSchema = new mongoose.Schema({
     type: Number,
     required: true,
     min: 0,
-    max: 500               // puedes ajustar el rango si manejas puntajes específicos
+    max: 500               //  es este caso fue un ejemplo de 0 a 500
   },
   fechaRegistro: {
     type: Date,
