@@ -15,6 +15,7 @@ app.use(express.json());
 
 app.use("/api/usuarios", usuariosRoutes);
 app.use("/api/instituciones", institucionesRoutes);
+app.use("/api/resultados", import("./models/ResultadosModel.js").then(module => module.default));
 
 app.use((req, res) => {
   res.status(404).json({ mensaje: "Ruta no encontrada" });
