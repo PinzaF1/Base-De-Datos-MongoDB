@@ -23,7 +23,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-//  Obtener tipo de prueba por ID
+//  Obtener tipo de prueba por id
 router.get("/:id", async (req, res) => {
   try {
     const prueba = await TipoDePrueba.findById(req.params.id);
@@ -34,7 +34,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// Actualizar tipo de prueba por ID
+// Actualizar tipo de prueba por id
 router.put("/:id", async (req, res) => {
   try {
     const actualizada = await TipoDePrueba.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -45,7 +45,7 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-// Eliminar tipo de prueba por ID
+// Eliminar tipo de prueba 
 router.delete("/:id", async (req, res) => {
   try {
     const eliminada = await TipoDePrueba.findByIdAndDelete(req.params.id);
