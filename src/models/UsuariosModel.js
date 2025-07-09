@@ -14,7 +14,7 @@ const usuarioSchema = new mongoose.Schema({
   },
   gradoId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "grados", // opcional: para saber qué grado cursa el estudiante
+    ref: "grados", 
     required: false
   }
 }, { timestamps: true });

@@ -3,7 +3,6 @@ import { Resultados } from "../models/ResultadosModel.js";
 
 const router = express.Router();
 
-//  Crear 
 router.post("/", async (req, res) => {
   try {
     const resultado = await Resultados.create(req.body);
@@ -13,7 +12,6 @@ router.post("/", async (req, res) => {
   }
 });
 
-// Obtener todos los resultados (con populate)
 router.get("/", async (req, res) => {
   try {
     const resultados = await Resultados.find()
@@ -25,7 +23,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Obtener resultados por estudiante
 router.get("/usuario/:id", async (req, res) => {
   try {
     const resultados = await Resultados.find({ idUsuario: req.params.id })
@@ -36,7 +33,6 @@ router.get("/usuario/:id", async (req, res) => {
   }
 });
 
-//  obtener resultados por tipo de prueba
 router.get("/tipo/:id", async (req, res) => {
   try {
     const resultados = await Resultados.find({ idTipoPrueba: req.params.id })
@@ -47,7 +43,6 @@ router.get("/tipo/:id", async (req, res) => {
   }
 });
 
-// Actualizar resultado por id
 router.put("/:id", async (req, res) => {
   try {
     const actualizado = await Resultados.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -58,7 +53,6 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-// eliminar resultado por id
 router.delete("/:id", async (req, res) => {
   try {
     const eliminado = await Resultados.findByIdAndDelete(req.params.id);

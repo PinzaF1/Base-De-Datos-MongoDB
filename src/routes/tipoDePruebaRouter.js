@@ -3,7 +3,6 @@ import { TipoDePrueba } from "../models/TipoDePruebaModel.js";
 
 const router = express.Router();
 
-// Crear nuevo tipo de prueba
 router.post("/", async (req, res) => {
   try {
     const nueva = await TipoDePrueba.create(req.body);
@@ -13,7 +12,6 @@ router.post("/", async (req, res) => {
   }
 });
 
-//  Obtener todos los tipos de prueba
 router.get("/", async (req, res) => {
   try {
     const pruebas = await TipoDePrueba.find();
@@ -23,7 +21,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-//  Obtener tipo de prueba por id
 router.get("/:id", async (req, res) => {
   try {
     const prueba = await TipoDePrueba.findById(req.params.id);
@@ -34,7 +31,6 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// Actualizar tipo de prueba por id
 router.put("/:id", async (req, res) => {
   try {
     const actualizada = await TipoDePrueba.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -45,7 +41,6 @@ router.put("/:id", async (req, res) => {
   }
 });
 
-// Eliminar tipo de prueba 
 router.delete("/:id", async (req, res) => {
   try {
     const eliminada = await TipoDePrueba.findByIdAndDelete(req.params.id);
