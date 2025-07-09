@@ -1,11 +1,12 @@
 import express from "express";
 import { Instituciones } from "../models/InstitucionesModel.js";
+import { Usuarios } from "../models/UsuariosModel.js"; 
 
 const router = express.Router();
 
 router.post("/", async (req, res) => {
   try {
-    const existe = await Usuarios.findOne({ NumeroIdentidadUsuario: req.body.NumeroIdentidadUsuario });
+    const existe = await Usuarios.findOne({ numeroIdentidadUsuario: req.body.NumeroIdentidadUsuario });
     if (existe) return res.status(400).json({ mensaje: "El usuario ya existe" });
 
     const usuario = await Usuarios.create(req.body);
@@ -36,6 +37,23 @@ router.get("/:id", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+
+router.get("/region/:region", async (req, res) => {
+  try {
+    const regionBuscada = req.params.region;
+    const instituciones = await Instituciones.find({ Region: regionBuscada });
+
+    if (!instituciones || instituciones.length === 0) {
+      return res.status(404).json({ mensaje: "No se encontraron instituciones en esa región" });
+    }
+
+    res.json(instituciones);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
 
 router.put("/:id", async (req, res) => {
   try {

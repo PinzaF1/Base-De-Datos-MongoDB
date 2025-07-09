@@ -8,6 +8,7 @@ import tipoDePruebaRoutes from "./routes/tipoDePruebaRouter.js";
 import resultadosRoutes from "./routes/resultadosRouter.js";
 import gradosroutes from "./routes/GradoRouter.js";
 import cargaUsuariosRoutes from "./routes/CargaUsuariosRouter.js"; 
+import administradoresRoutes from "./routes/AdministradoresRoutes.js";
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ app.use("/api/tipos-de-prueba", tipoDePruebaRoutes);
 app.use("/api/resultados", resultadosRoutes);
 app.use("/api/grados", gradosroutes);
 app.use("/api/carga-usuarios", cargaUsuariosRoutes); 
+app.use("/api/administradores", administradoresRoutes);
 
 app.use((req, res) => {
   res.status(404).json({ mensaje: "Ruta no encontrada" });
